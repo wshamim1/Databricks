@@ -33,21 +33,23 @@ This repository is a compact learning path for Databricks fundamentals.
 16. [16 - Hive Metastore vs Catalog vs Unity Catalog](tutorials/16-hive-metastore-vs-catalog-vs-unity-catalog.md)
 17. [17 - What Is a Delta Table](tutorials/17-what-is-delta-table.md)
 18. [18 - Managed Table vs External Table](tutorials/18-managed-table-vs-external-table.md)
-19. [Fundamentals Notebook](notebooks/databricks_fundamentals_examples.ipynb)
-20. [Delta Lake Operations Notebook](notebooks/delta_lake_operations_examples.ipynb)
-21. [Delta Table Basics Notebook](notebooks/delta_table_basics_examples.ipynb)
-22. [Unity Catalog Hands-On Notebook](notebooks/unity_catalog_hands_on_examples.ipynb)
-23. [Jobs and Workflows Notebook](notebooks/jobs_and_workflows_examples.ipynb)
-24. [Databricks SQL Notebook](notebooks/databricks_sql_examples.ipynb)
-25. [Streaming and Auto Loader Notebook](notebooks/streaming_and_autoloader_examples.ipynb)
-26. [Machine Learning and MLflow Notebook](notebooks/machine_learning_and_mlflow_examples.ipynb)
-27. [APIs and SDK Notebook](notebooks/databricks_apis_and_sdk_examples.ipynb)
-28. [Scheduler Patterns Notebook](notebooks/scheduler_patterns_examples.ipynb)
-29. [Medallion Architecture End-to-End Notebook](notebooks/medallion_architecture_end_to_end_examples.ipynb)
-30. [Observability and Troubleshooting Notebook](notebooks/observability_and_troubleshooting_examples.ipynb)
-31. [Real-World Ingestion Patterns Notebook](notebooks/real_world_ingestion_patterns_examples.ipynb)
-32. [Kafka End-to-End Ingestion Notebook](notebooks/kafka_end_to_end_ingestion_examples.ipynb)
-33. [IoT Monitoring and Anomaly Notebook](notebooks/iot_monitoring_and_anomaly_examples.ipynb)
+19. [19 - External Tables, External Locations, and Storage Credentials](tutorials/19-external-tables-external-locations-and-storage-credentials.md)
+20. [Fundamentals Notebook](notebooks/databricks_fundamentals_examples.ipynb)
+21. [Delta Lake Operations Notebook](notebooks/delta_lake_operations_examples.ipynb)
+22. [Delta Table Basics Notebook](notebooks/delta_table_basics_examples.ipynb)
+23. [Managed vs External Table Notebook](notebooks/managed_vs_external_table_examples.ipynb)
+24. [Unity Catalog Hands-On Notebook](notebooks/unity_catalog_hands_on_examples.ipynb)
+25. [Jobs and Workflows Notebook](notebooks/jobs_and_workflows_examples.ipynb)
+26. [Databricks SQL Notebook](notebooks/databricks_sql_examples.ipynb)
+27. [Streaming and Auto Loader Notebook](notebooks/streaming_and_autoloader_examples.ipynb)
+28. [Machine Learning and MLflow Notebook](notebooks/machine_learning_and_mlflow_examples.ipynb)
+29. [APIs and SDK Notebook](notebooks/databricks_apis_and_sdk_examples.ipynb)
+30. [Scheduler Patterns Notebook](notebooks/scheduler_patterns_examples.ipynb)
+31. [Medallion Architecture End-to-End Notebook](notebooks/medallion_architecture_end_to_end_examples.ipynb)
+32. [Observability and Troubleshooting Notebook](notebooks/observability_and_troubleshooting_examples.ipynb)
+33. [Real-World Ingestion Patterns Notebook](notebooks/real_world_ingestion_patterns_examples.ipynb)
+34. [Kafka End-to-End Ingestion Notebook](notebooks/kafka_end_to_end_ingestion_examples.ipynb)
+35. [IoT Monitoring and Anomaly Notebook](notebooks/iot_monitoring_and_anomaly_examples.ipynb)
 
 ## Suggested order
 
@@ -69,6 +71,8 @@ Delta Lake is the table format and transaction layer that makes lakehouse-style 
 The Delta table tutorial explains what a Delta table actually is, how it differs from plain parquet tables, and why `_delta_log`, table history, merge support, and time travel matter in practice.
 
 The managed vs external table tutorial explains the separate question of who controls the table storage path and lifecycle.
+
+The external tables tutorial explains how external tables relate to external locations and storage credentials in Unity Catalog.
 
 ### Medallion architecture
 
@@ -126,7 +130,6 @@ The scheduler comparison and scheduler architecture pages explain how Databricks
 ## How to use this repo
 
 - Read the markdown guides for concepts and terminology
-- Open the notebooks for working examples of Spark code, Delta operations, medallion layering, observability checks, real-world ingestion patterns, Kafka pipelines, IoT monitoring patterns, Unity Catalog usage, Databricks SQL, streaming patterns, machine learning workflows, API automation, scheduler design, job orchestration, and notebook patterns
 - Open the notebooks for working examples of Spark code, Delta operations, Delta table basics, medallion layering, observability checks, real-world ingestion patterns, Kafka pipelines, IoT monitoring patterns, Unity Catalog usage, Databricks SQL, streaming patterns, machine learning workflows, API automation, scheduler design, job orchestration, and notebook patterns
 - Use the scripts in `scripts/` as starting points for Databricks REST API and Python SDK automation
 - Use the scripts in `scripts/` as starting points for Databricks REST API, Python SDK, external scheduler automation, and Kafka or Event Hubs ingestion trigger examples
