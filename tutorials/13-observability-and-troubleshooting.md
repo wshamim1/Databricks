@@ -280,6 +280,52 @@ A simple run-observability pattern is to record:
 
 These metrics can be written to a Delta table so they are queryable across runs.
 
+## Job-run metadata to inspect
+
+When troubleshooting a failed or suspicious workflow, job metadata often narrows the problem faster than raw logs.
+
+Useful fields include:
+
+- `job_id`
+- `run_id`
+- `task_key`
+- `life_cycle_state`
+- `result_state`
+- `trigger_type`
+- `attempt_number`
+- `start_time`
+- `end_time`
+- `error_message`
+
+These fields help answer practical questions such as:
+
+- Did the task actually start or fail during setup?
+- Was the run manual, scheduled, or triggered externally?
+- Did the retry succeed after a transient failure?
+- Did only one task fail while the rest of the workflow completed?
+
+If you store or pull this metadata regularly, you can compare failure trends across runs instead of debugging one run at a time.
+
+## Delta history as a troubleshooting signal
+
+Delta table history is useful when a table changed unexpectedly but the workflow itself did not obviously fail.
+
+`DESCRIBE HISTORY` helps answer questions such as:
+
+- When was the table last written?
+- Was the change an append, overwrite, merge, update, or delete?
+- Which operation likely introduced the issue?
+- Did a row-count drop happen after a particular pipeline run?
+
+This is especially useful when:
+
+- the job succeeded but downstream data looks wrong
+- a table was overwritten unexpectedly
+- a merge introduced too many or too few records
+- you need to line up a table change with a job run time
+
+In practice, job metadata tells you what the workflow did, and Delta history helps confirm what actually changed in the table.
+
 ## Example operational metrics table
 
 Useful columns:
