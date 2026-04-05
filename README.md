@@ -27,16 +27,18 @@ This repository is a compact learning path for Databricks fundamentals.
 10. [10 - Scheduler Comparison](tutorials/10-scheduler-comparison.md)
 11. [11 - Scheduler Architecture Diagram](tutorials/11-scheduler-architecture-diagram.md)
 12. [12 - Medallion Architecture End-to-End](tutorials/12-medallion-architecture-end-to-end.md)
-13. [Fundamentals Notebook](notebooks/databricks_fundamentals_examples.ipynb)
-14. [Delta Lake Operations Notebook](notebooks/delta_lake_operations_examples.ipynb)
-15. [Unity Catalog Hands-On Notebook](notebooks/unity_catalog_hands_on_examples.ipynb)
-16. [Jobs and Workflows Notebook](notebooks/jobs_and_workflows_examples.ipynb)
-17. [Databricks SQL Notebook](notebooks/databricks_sql_examples.ipynb)
-18. [Streaming and Auto Loader Notebook](notebooks/streaming_and_autoloader_examples.ipynb)
-19. [Machine Learning and MLflow Notebook](notebooks/machine_learning_and_mlflow_examples.ipynb)
-20. [APIs and SDK Notebook](notebooks/databricks_apis_and_sdk_examples.ipynb)
-21. [Scheduler Patterns Notebook](notebooks/scheduler_patterns_examples.ipynb)
-22. [Medallion Architecture End-to-End Notebook](notebooks/medallion_architecture_end_to_end_examples.ipynb)
+13. [13 - Observability and Troubleshooting](tutorials/13-observability-and-troubleshooting.md)
+14. [Fundamentals Notebook](notebooks/databricks_fundamentals_examples.ipynb)
+15. [Delta Lake Operations Notebook](notebooks/delta_lake_operations_examples.ipynb)
+16. [Unity Catalog Hands-On Notebook](notebooks/unity_catalog_hands_on_examples.ipynb)
+17. [Jobs and Workflows Notebook](notebooks/jobs_and_workflows_examples.ipynb)
+18. [Databricks SQL Notebook](notebooks/databricks_sql_examples.ipynb)
+19. [Streaming and Auto Loader Notebook](notebooks/streaming_and_autoloader_examples.ipynb)
+20. [Machine Learning and MLflow Notebook](notebooks/machine_learning_and_mlflow_examples.ipynb)
+21. [APIs and SDK Notebook](notebooks/databricks_apis_and_sdk_examples.ipynb)
+22. [Scheduler Patterns Notebook](notebooks/scheduler_patterns_examples.ipynb)
+23. [Medallion Architecture End-to-End Notebook](notebooks/medallion_architecture_end_to_end_examples.ipynb)
+24. [Observability and Troubleshooting Notebook](notebooks/observability_and_troubleshooting_examples.ipynb)
 
 ## Suggested order
 
@@ -55,6 +57,10 @@ Delta Lake is the table format and transaction layer that makes lakehouse-style 
 ### Medallion architecture
 
 The medallion guide and notebook show how raw records move from bronze to silver to gold, with examples of ingestion metadata, data quality filtering, deduplication, and business-level aggregates.
+
+### Observability and troubleshooting
+
+The observability guide and notebook show how to inspect run metrics, row-count changes, rejected records, freshness, and common failure patterns across Databricks jobs and tables.
 
 ### Key terms
 
@@ -90,7 +96,7 @@ The scheduler comparison and scheduler architecture pages explain how Databricks
 ## How to use this repo
 
 - Read the markdown guides for concepts and terminology
-- Open the notebooks for working examples of Spark code, Delta operations, medallion layering, Unity Catalog usage, Databricks SQL, streaming patterns, machine learning workflows, API automation, scheduler design, job orchestration, and notebook patterns
+- Open the notebooks for working examples of Spark code, Delta operations, medallion layering, observability checks, Unity Catalog usage, Databricks SQL, streaming patterns, machine learning workflows, API automation, scheduler design, job orchestration, and notebook patterns
 - Use the scripts in `scripts/` as starting points for Databricks REST API and Python SDK automation
 - Use the scripts in `scripts/` as starting points for Databricks REST API, Python SDK, and external scheduler automation examples
 - Extend the examples with your own datasets, Delta tables, or job definitions
