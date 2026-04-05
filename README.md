@@ -29,17 +29,19 @@ This repository is a compact learning path for Databricks fundamentals.
 12. [12 - Medallion Architecture End-to-End](tutorials/12-medallion-architecture-end-to-end.md)
 13. [13 - Observability and Troubleshooting](tutorials/13-observability-and-troubleshooting.md)
 14. [14 - External Integrations](tutorials/14-external-integrations.md)
-15. [Fundamentals Notebook](notebooks/databricks_fundamentals_examples.ipynb)
-16. [Delta Lake Operations Notebook](notebooks/delta_lake_operations_examples.ipynb)
-17. [Unity Catalog Hands-On Notebook](notebooks/unity_catalog_hands_on_examples.ipynb)
-18. [Jobs and Workflows Notebook](notebooks/jobs_and_workflows_examples.ipynb)
-19. [Databricks SQL Notebook](notebooks/databricks_sql_examples.ipynb)
-20. [Streaming and Auto Loader Notebook](notebooks/streaming_and_autoloader_examples.ipynb)
-21. [Machine Learning and MLflow Notebook](notebooks/machine_learning_and_mlflow_examples.ipynb)
-22. [APIs and SDK Notebook](notebooks/databricks_apis_and_sdk_examples.ipynb)
-23. [Scheduler Patterns Notebook](notebooks/scheduler_patterns_examples.ipynb)
-24. [Medallion Architecture End-to-End Notebook](notebooks/medallion_architecture_end_to_end_examples.ipynb)
-25. [Observability and Troubleshooting Notebook](notebooks/observability_and_troubleshooting_examples.ipynb)
+15. [15 - Real-World Ingestion Use Cases](tutorials/15-real-world-ingestion-use-cases.md)
+16. [Fundamentals Notebook](notebooks/databricks_fundamentals_examples.ipynb)
+17. [Delta Lake Operations Notebook](notebooks/delta_lake_operations_examples.ipynb)
+18. [Unity Catalog Hands-On Notebook](notebooks/unity_catalog_hands_on_examples.ipynb)
+19. [Jobs and Workflows Notebook](notebooks/jobs_and_workflows_examples.ipynb)
+20. [Databricks SQL Notebook](notebooks/databricks_sql_examples.ipynb)
+21. [Streaming and Auto Loader Notebook](notebooks/streaming_and_autoloader_examples.ipynb)
+22. [Machine Learning and MLflow Notebook](notebooks/machine_learning_and_mlflow_examples.ipynb)
+23. [APIs and SDK Notebook](notebooks/databricks_apis_and_sdk_examples.ipynb)
+24. [Scheduler Patterns Notebook](notebooks/scheduler_patterns_examples.ipynb)
+25. [Medallion Architecture End-to-End Notebook](notebooks/medallion_architecture_end_to_end_examples.ipynb)
+26. [Observability and Troubleshooting Notebook](notebooks/observability_and_troubleshooting_examples.ipynb)
+27. [Real-World Ingestion Patterns Notebook](notebooks/real_world_ingestion_patterns_examples.ipynb)
 
 ## Suggested order
 
@@ -66,6 +68,10 @@ The observability guide and notebook show how to inspect run metrics, row-count 
 ### External integrations
 
 The external integrations guide and examples show how Databricks fits into Airflow, Azure Data Factory, GitHub Actions, AWS Step Functions, and dbt-driven delivery patterns.
+
+### Real-world ingestion
+
+The real-world ingestion guide and notebook show practical source patterns such as Kafka events, IoT sensor telemetry, file-based landing, API extraction, and CDC-style ingestion into bronze, silver, and gold layers.
 
 ### Key terms
 
@@ -101,7 +107,7 @@ The scheduler comparison and scheduler architecture pages explain how Databricks
 ## How to use this repo
 
 - Read the markdown guides for concepts and terminology
-- Open the notebooks for working examples of Spark code, Delta operations, medallion layering, observability checks, Unity Catalog usage, Databricks SQL, streaming patterns, machine learning workflows, API automation, scheduler design, job orchestration, and notebook patterns
+- Open the notebooks for working examples of Spark code, Delta operations, medallion layering, observability checks, real-world ingestion patterns, Unity Catalog usage, Databricks SQL, streaming patterns, machine learning workflows, API automation, scheduler design, job orchestration, and notebook patterns
 - Use the scripts in `scripts/` as starting points for Databricks REST API and Python SDK automation
 - Use the scripts in `scripts/` as starting points for Databricks REST API, Python SDK, and external scheduler automation examples
 - Use the examples in `integrations/` as starting points for Airflow, Azure Data Factory, GitHub Actions, and Step Functions integration patterns
