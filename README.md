@@ -29,10 +29,50 @@ This repository is a compact learning path for Databricks fundamentals.
 12. [Jobs and Workflows Notebook](notebooks/jobs_and_workflows_examples.ipynb)
 13. [Databricks SQL Notebook](notebooks/databricks_sql_examples.ipynb)
 14. [Streaming and Auto Loader Notebook](notebooks/streaming_and_autoloader_examples.ipynb)
+15. [Machine Learning and MLflow Notebook](notebooks/machine_learning_and_mlflow_examples.ipynb)
 
 ## Suggested order
 
 Start with the platform overview, then move into governance, then infrastructure, and finish with notebook and job orchestration patterns.
+
+## Topics covered
+
+### Databricks at a glance
+
+Databricks is a unified analytics platform built around the lakehouse model. It combines data engineering, analytics, machine learning, governance, and orchestration in one environment.
+
+### Delta Lake and lakehouse
+
+Delta Lake is the table format and transaction layer that makes lakehouse-style data management practical. The lakehouse architecture combines low-cost cloud storage with warehouse-style reliability, performance features, and governance.
+
+### Key terms
+
+- Lakehouse: data architecture that combines data lake flexibility with data warehouse management features
+- Workspace: the user-facing collaboration area for notebooks, jobs, dashboards, repos, and assets
+- Compute: the processing layer used to run notebooks, jobs, SQL, and machine learning workloads
+- Unity Catalog: the governance layer for data and AI assets across workspaces
+- Catalog: a namespace inside Unity Catalog, used to organize schemas and tables
+
+### Quick reference
+
+The glossary page provides short definitions for the main Databricks platform, storage, governance, SQL, and streaming terms used across these tutorials.
+
+### Interview prep
+
+The FAQ page collects common Databricks questions and short, direct answers for revision, onboarding, and interview preparation.
+
+## Common role mapping
+
+- Data engineers build ingestion and transformation pipelines
+- Analysts query curated data and build dashboards
+- Data scientists explore data and train models
+- Platform teams manage governance, security, compute policies, and cost controls
+
+## How to use this repo
+
+- Read the markdown guides for concepts and terminology
+- Open the notebooks for working examples of Spark code, Delta operations, Unity Catalog usage, Databricks SQL, streaming patterns, machine learning workflows, job orchestration, and notebook patterns
+- Extend the examples with your own datasets, Delta tables, or job definitions
 
 ## Topics covered
 
