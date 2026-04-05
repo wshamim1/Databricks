@@ -47,9 +47,13 @@ Separated examples:
 - REST jobs script: `scripts/rest/jobs_api.sh`
 - REST clusters script: `scripts/rest/clusters_api.sh`
 - REST workspace script: `scripts/rest/workspace_api.sh`
+- REST permissions script: `scripts/rest/permissions_api.sh`
+- REST repos script: `scripts/rest/repos_api.sh`
 - SDK jobs script: `scripts/sdk/jobs_api.py`
 - SDK clusters script: `scripts/sdk/clusters_api.py`
 - SDK workspace script: `scripts/sdk/workspace_api.py`
+- SDK permissions script: `scripts/sdk/permissions_api.py`
+- SDK repos script: `scripts/sdk/repos_api.py`
 
 Use these as templates rather than production-ready deployment code.
 
@@ -174,6 +178,19 @@ Beyond jobs and clusters, the most common APIs teams usually automate are:
 - Serving or model APIs: manage model serving or inference endpoints in ML workflows
 
 If you are automating platform administration, workspace, permissions, cluster policies, and SQL warehouse APIs are usually the next places to look after jobs and compute.
+
+## Which "other" APIs matter most
+
+For most platform teams, the next practical sequence after jobs and clusters is:
+
+1. Workspace APIs
+2. Permissions APIs
+3. Repos APIs
+4. Cluster policies APIs
+5. SQL warehouses APIs
+6. Unity Catalog APIs
+
+That order usually gives the most value for day-to-day automation.
 
 ## Python SDK setup
 
