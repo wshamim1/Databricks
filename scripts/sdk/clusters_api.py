@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 
 import argparse
+
 from databricks.sdk import WorkspaceClient
 
 
-def create_cluster(client: WorkspaceClient) -> None:
+def create_cluster(client: WorkspaceClient) -> str:
     cluster = client.clusters.create(
         cluster_name="demo-sdk-cluster",
         spark_version="15.4.x-scala2.12",
@@ -13,6 +14,19 @@ def create_cluster(client: WorkspaceClient) -> None:
         autotermination_minutes=20,
     )
     print(cluster.cluster_id)
+    return cluster.cluster_id
+
+
+def create_and_install(client: WorkspaceClient) -> None:
+    cluster_id = create_cluster(client)
+    client.libraries.install(
+        cluster_id=cluster_id,
+        libraries=[
+            {"pypi": {"package": "pandas==2.2.2"}},
+            {"jar": "dbfs:/FileStore/jars/example-library.jar"},
+        ],
+    )
+    print(f"Installed sample libraries on {cluster_id}")
 
 
 def list_clusters(client: WorkspaceClient) -> None:
@@ -29,6 +43,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Databricks clusters SDK examples")
     subparsers = parser.add_subparsers(dest="command", required=True)
     subparsers.add_parser("create")
+    subparsers.add_parser("create-and-install")
     subparsers.add_parser("list")
     delete_parser = subparsers.add_parser("delete")
     delete_parser.add_argument("cluster_id")
@@ -41,6 +56,8 @@ def main() -> None:
 
     if args.command == "create":
         create_cluster(client)
+    elif args.command == "create-and-install":
+        create_and_install(client)
     elif args.command == "list":
         list_clusters(client)
     elif args.command == "delete":

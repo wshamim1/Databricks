@@ -58,6 +58,10 @@ Hive metastore patterns often use `database.table`. Unity Catalog patterns usual
 
 The common hierarchy is: `metastore -> catalog -> schema -> table`.
 
+### What is the difference between DBFS and volumes?
+
+DBFS is a Databricks file access pattern commonly used for workspace-level files and compatibility paths such as `dbfs:/`. Volumes are Unity Catalog-governed file locations for non-tabular data with clearer centralized permissions and governance.
+
 ### Why use fully qualified names?
 
 They make data references explicit and reduce ambiguity across environments and workspaces.

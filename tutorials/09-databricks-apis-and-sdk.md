@@ -222,6 +222,8 @@ Typical examples include:
 
 In practice, teams often upload a JAR or wheel first and then attach it through the libraries API.
 
+The cluster SDK example also includes a `create-and-install` command when you want a compact demo that creates compute first and then attaches sample dependencies.
+
 ## Which "other" APIs matter most
 
 For most platform teams, the next practical sequence after jobs and clusters is:
