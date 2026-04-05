@@ -255,6 +255,84 @@ Serving automation commonly includes:
 
 These APIs are useful when you want to operationalize ML models behind managed inference endpoints.
 
+## Airflow example for triggering Databricks jobs
+
+Airflow is commonly used as an external scheduler when Databricks is only one step in a broader workflow.
+
+Typical pattern:
+
+1. Wait for upstream files, APIs, or database conditions
+2. Trigger a Databricks job
+3. Monitor run status
+4. Continue to downstream systems only if the Databricks run succeeds
+
+Example using an Airflow Databricks operator pattern:
+
+```python
+from airflow import DAG
+from airflow.providers.databricks.operators.databricks import DatabricksRunNowOperator
+from datetime import datetime
+
+with DAG(
+    dag_id="orders_databricks_pipeline",
+    start_date=datetime(2026, 4, 1),
+    schedule="0 6 * * *",
+    catchup=False,
+) as dag:
+    run_orders_job = DatabricksRunNowOperator(
+        task_id="run_orders_job",
+        databricks_conn_id="databricks_default",
+        job_id=12345,
+        job_parameters={"run_date": "{{ ds }}"},
+    )
+```
+
+If you are not using a provider operator, Airflow can also call the Databricks Jobs REST API directly through an HTTP operator or custom Python task.
+
+## Azure Data Factory example for triggering Databricks
+
+ADF is commonly used when Databricks is part of a larger Azure data integration flow.
+
+Typical pattern:
+
+1. Copy or validate source data
+2. Run a Databricks notebook or job activity
+3. Capture success or failure state
+4. Continue to storage, SQL, or reporting steps
+
+Example ADF-style activity concept:
+
+```json
+{
+  "name": "Run_Databricks_Orders_Notebook",
+  "type": "DatabricksNotebook",
+  "typeProperties": {
+    "notebookPath": "/Workspace/Shared/notebooks/ingest_orders",
+    "baseParameters": {
+      "run_date": "@{pipeline().TriggerTime}",
+      "run_mode": "incremental"
+    }
+  },
+  "linkedServiceName": {
+    "referenceName": "AzureDatabricksLinkedService",
+    "type": "LinkedServiceReference"
+  }
+}
+```
+
+In ADF, you can either call notebooks directly through a Databricks activity or call Databricks jobs through web or orchestration patterns depending on your platform design.
+
+## Choosing between Airflow and ADF for Databricks orchestration
+
+| Topic | Airflow | Azure Data Factory |
+| --- | --- | --- |
+| Best fit | Python-centric orchestration and complex DAG logic | Azure-native integration workflows |
+| Databricks integration style | Operators or REST calls | Native Databricks activities or web calls |
+| Typical users | Data platform and data engineering teams | Integration and enterprise ETL teams |
+| Strength | Flexible DAG control | Strong Azure ecosystem integration |
+
+The right choice depends more on your enterprise orchestration standard than on Databricks itself.
+
 ## Python SDK setup
 
 Install the SDK:

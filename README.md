@@ -32,6 +32,7 @@ This repository is a compact learning path for Databricks fundamentals.
 15. [Streaming and Auto Loader Notebook](notebooks/streaming_and_autoloader_examples.ipynb)
 16. [Machine Learning and MLflow Notebook](notebooks/machine_learning_and_mlflow_examples.ipynb)
 17. [APIs and SDK Notebook](notebooks/databricks_apis_and_sdk_examples.ipynb)
+18. [Scheduler Patterns Notebook](notebooks/scheduler_patterns_examples.ipynb)
 
 ## Suggested order
 
@@ -77,6 +78,6 @@ The APIs and SDK guide shows how to create and manage jobs and compute programma
 ## How to use this repo
 
 - Read the markdown guides for concepts and terminology
-- Open the notebooks for working examples of Spark code, Delta operations, Unity Catalog usage, Databricks SQL, streaming patterns, machine learning workflows, API automation, job orchestration, and notebook patterns
+- Open the notebooks for working examples of Spark code, Delta operations, Unity Catalog usage, Databricks SQL, streaming patterns, machine learning workflows, API automation, scheduler design, job orchestration, and notebook patterns
 - Use the scripts in `scripts/` as starting points for Databricks REST API and Python SDK automation
 - Extend the examples with your own datasets, Delta tables, or job definitions
