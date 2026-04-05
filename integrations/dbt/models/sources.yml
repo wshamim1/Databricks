@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: silver
+    description: Silver-layer source tables exposed to dbt models.
+    catalog: main
+    schema: silver
+    tables:
+      - name: orders_silver
+        description: Cleaned order records used for gold-level aggregates.
+        columns:
+          - name: order_id
+            tests:
+              - not_null
+          - name: order_date
+            tests:
+              - not_null
+          - name: region
+            tests:
+              - not_null
+          - name: amount
+            tests:
+              - not_null

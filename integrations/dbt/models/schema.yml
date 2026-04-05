@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: orders_daily_sales
+    description: Daily completed-order sales by region from the silver orders table.
+    columns:
+      - name: order_date
+        description: Business date for the order aggregate.
+        tests:
+          - not_null
+      - name: region
+        description: Standardized region name.
+        tests:
+          - not_null
+      - name: order_count
+        description: Count of distinct completed orders for the day and region.
+        tests:
+          - not_null
+      - name: gross_sales
+        description: Sum of completed-order amounts for the day and region.
+        tests:
+          - not_null
