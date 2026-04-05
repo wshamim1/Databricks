@@ -147,6 +147,17 @@ Useful governance signals include:
 
 When a Databricks pipeline fails, use a fixed order instead of jumping around.
 
+```mermaid
+flowchart TD
+	fail[Pipeline or Query Issue] --> scope[Confirm Scope of Failure]
+	scope --> history[Check Job Run or Query History]
+	history --> classify[Separate Code vs Platform Failure]
+	classify --> input[Validate Input Data]
+	input --> output[Inspect Output Layer]
+	output --> permissions[Check Permissions and Environment]
+	permissions --> root[Identify Root Cause and Fix]
+```
+
 ### 1. Confirm the scope of failure
 
 Ask:
@@ -309,6 +320,18 @@ If you store or pull this metadata regularly, you can compare failure trends acr
 ## Delta history as a troubleshooting signal
 
 Delta table history is useful when a table changed unexpectedly but the workflow itself did not obviously fail.
+
+```mermaid
+flowchart LR
+	run[Pipeline Run] --> table[Delta Table Change]
+	table --> history[DESCRIBE HISTORY]
+	history --> op[Operation Type]
+	history --> time[Change Timestamp]
+	history --> metrics[Write Metrics]
+	op --> analysis[Root Cause Analysis]
+	time --> analysis
+	metrics --> analysis
+```
 
 `DESCRIBE HISTORY` helps answer questions such as:
 

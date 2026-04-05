@@ -26,12 +26,15 @@ Teams use medallion architecture because it helps with:
 
 Typical Databricks flow:
 
-```text
-Source systems
-    -> Bronze Delta tables
-    -> Silver Delta tables
-    -> Gold Delta tables
-    -> SQL dashboards, notebooks, jobs, ML features, or downstream APIs
+```mermaid
+flowchart LR
+    source[Source Systems] --> bronze[Bronze Delta Tables]
+    bronze --> silver[Silver Delta Tables]
+    silver --> gold[Gold Delta Tables]
+    gold --> dashboards[SQL Dashboards]
+    gold --> notebooks[Notebooks and Jobs]
+    silver --> ml[ML Features]
+    gold --> apis[Downstream APIs]
 ```
 
 In Databricks, each layer is usually stored as Delta tables under governed Unity Catalog schemas.
@@ -120,6 +123,14 @@ Common gold operations:
 ## Example pipeline
 
 Imagine an orders pipeline.
+
+```mermaid
+flowchart LR
+    raw[Raw Orders] --> ordersRaw[orders_raw Bronze]
+    ordersRaw --> ordersClean[orders_clean Silver]
+    ordersClean --> dailySales[daily_sales_by_region Gold]
+    dailySales --> analysts[Analysts and Reporting]
+```
 
 ### Bronze table
 

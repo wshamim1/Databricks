@@ -78,18 +78,28 @@ Instead of separating raw storage and analytical serving into completely differe
 
 In Databricks, lakehouse architecture typically looks like this:
 
-```text
-Source systems
-    -> Cloud object storage
-    -> Delta Lake tables
-    -> Databricks compute and SQL
-    -> Unity Catalog governance
-    -> Analytics, jobs, ML, and downstream applications
+```mermaid
+flowchart LR
+    source[Source Systems] --> storage[Cloud Object Storage]
+    storage --> delta[Delta Lake Tables]
+    delta --> compute[Databricks Compute and SQL]
+    compute --> governance[Unity Catalog Governance]
+    governance --> consumers[Analytics Jobs ML and Applications]
 ```
 
 ## Typical medallion layering
 
 Many Databricks lakehouse implementations use the medallion pattern.
+
+```mermaid
+flowchart LR
+    raw[Raw Source Data] --> bronze[Bronze]
+    bronze --> silver[Silver]
+    silver --> gold[Gold]
+    gold --> bi[BI and Reporting]
+    silver --> ml[ML and Feature Engineering]
+    gold --> apps[Downstream Applications]
+```
 
 ### Bronze
 

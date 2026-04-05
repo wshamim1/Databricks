@@ -28,8 +28,25 @@ Real ingestion pipelines usually need to do some combination of these:
 
 In Databricks, the standard pattern is usually:
 
-```text
-Source system -> Bronze Delta table -> Silver cleanup -> Gold serving tables
+```mermaid
+flowchart LR
+	source[Source System] --> bronze[Bronze Delta Table]
+	bronze --> silver[Silver Cleanup]
+	silver --> gold[Gold Serving Tables]
+```
+
+## Ingestion landscape diagram
+
+```mermaid
+flowchart LR
+	kafka[Kafka] --> bronze[Bronze]
+	iot[IoT Sensors] --> bronze
+	files[Cloud Storage Files] --> bronze
+	api[REST APIs] --> bronze
+	cdc[CDC Feeds] --> bronze
+	bronze --> silver[Silver]
+	silver --> gold[Gold]
+	gold --> consumers[Analytics ML Apps]
 ```
 
 ## Use case 1: Ingesting Kafka events into Databricks
@@ -77,6 +94,15 @@ Common source paths include:
 - MQTT forwarded into cloud storage or a message bus
 - periodic file drops in object storage
 - IoT platform export APIs
+
+```mermaid
+flowchart LR
+	devices[Devices and Sensors] --> bus[Kafka or Event Hubs]
+	bus --> bronzeIoT[Bronze Telemetry]
+	bronzeIoT --> silverIoT[Silver Standardization]
+	silverIoT --> goldIoT[Gold Monitoring Outputs]
+	goldIoT --> alerts[Alerts Dashboards and Asset Monitoring]
+```
 
 Typical Databricks pattern:
 

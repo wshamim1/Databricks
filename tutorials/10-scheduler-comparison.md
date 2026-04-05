@@ -16,6 +16,16 @@ This page compares common orchestration options used with Databricks.
 - Use Azure Data Factory when you want Azure-native integration and pipeline management
 - Use AWS Step Functions when your workflow is centered around AWS service orchestration with Databricks as one step
 
+```mermaid
+flowchart TD
+	start[Choose an Orchestrator] --> scope{Is the workflow mostly inside Databricks?}
+	scope -->|Yes| dbx[Databricks Jobs]
+	scope -->|No| cloud{Which platform standard dominates?}
+	cloud -->|Azure| adf[Azure Data Factory]
+	cloud -->|AWS| step[AWS Step Functions]
+	cloud -->|Cross-platform DAGs| airflow[Apache Airflow]
+```
+
 ## Side-by-side comparison
 
 | Topic | Databricks Jobs | Airflow | Azure Data Factory | AWS Step Functions |

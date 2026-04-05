@@ -19,10 +19,38 @@ Runs the compute resources that process data. Depending on the cloud and deploym
 
 ## Conceptual flow
 
-```text
-Users -> Workspace -> Compute -> Cloud Storage / Delta Tables
-                    -> Jobs / Workflows
-                    -> Unity Catalog for governance checks
+```mermaid
+flowchart LR
+    users[Users] --> workspace[Workspace]
+    workspace --> compute[Compute]
+    workspace --> workflows[Jobs and Workflows]
+    workspace --> governance[Unity Catalog Checks]
+    compute --> storage[Cloud Storage and Delta Tables]
+    workflows --> compute
+    governance -.governs.-> storage
+```
+
+## Platform layers diagram
+
+```mermaid
+flowchart TB
+    subgraph control[Control Plane]
+        web[Workspace Web Application]
+        metadata[Job and Asset Metadata]
+        manager[Cluster and Service Coordination]
+    end
+
+    subgraph data[Data Plane]
+        driver[Driver]
+        executors[Executors]
+        storage[Cloud Storage and Delta]
+    end
+
+    web --> driver
+    metadata --> manager
+    manager --> driver
+    driver --> executors
+    executors --> storage
 ```
 
 ## What is a workspace

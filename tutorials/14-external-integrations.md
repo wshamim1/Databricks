@@ -21,6 +21,17 @@ The goal of an integration is usually one of these:
 
 ## Common integration categories
 
+```mermaid
+flowchart LR
+	external[External Platform] --> orchestration[Workflow Orchestrators]
+	external --> cicd[CI CD Platforms]
+	external --> transform[Transformation Tools]
+	orchestration --> databricks[Databricks Jobs or Notebooks]
+	cicd --> databricks
+	transform --> databricks
+	databricks --> outputs[Curated Tables and Data Products]
+```
+
 ### Workflow orchestrators
 
 These tools trigger or monitor Databricks work as one step in a larger pipeline.
@@ -101,8 +112,11 @@ Use external integrations when:
 
 Pattern:
 
-```text
-Airflow DAG -> Databricks Jobs API or operator -> Databricks workflow -> Delta tables
+```mermaid
+flowchart LR
+	airflow[Airflow DAG] --> api[Databricks Jobs API or Operator]
+	api --> workflow[Databricks Workflow]
+	workflow --> delta[Delta Tables]
 ```
 
 Good fit for centralized orchestration and dependency management.
@@ -111,8 +125,11 @@ Good fit for centralized orchestration and dependency management.
 
 Pattern:
 
-```text
-ADF pipeline -> Databricks notebook activity -> Delta tables -> downstream Azure services
+```mermaid
+flowchart LR
+	adf[ADF Pipeline] --> notebook[Databricks Notebook Activity]
+	notebook --> delta[Delta Tables]
+	delta --> azure[Downstream Azure Services]
 ```
 
 Good fit for Azure-centric enterprise data platforms.
@@ -121,8 +138,10 @@ Good fit for Azure-centric enterprise data platforms.
 
 Pattern:
 
-```text
-GitHub workflow -> Databricks REST API -> job run or deployment step
+```mermaid
+flowchart LR
+	github[GitHub Workflow] --> rest[Databricks REST API]
+	rest --> run[Job Run or Deployment Step]
 ```
 
 Good fit for source-controlled automation and lightweight operational triggers.
@@ -131,8 +150,11 @@ Good fit for source-controlled automation and lightweight operational triggers.
 
 Pattern:
 
-```text
-AWS Step Functions -> HTTP invocation -> Databricks Jobs API -> downstream AWS steps
+```mermaid
+flowchart LR
+	step[AWS Step Functions] --> http[HTTP Invocation]
+	http --> api[Databricks Jobs API]
+	api --> aws[Downstream AWS Steps]
 ```
 
 Good fit for AWS-native workflow coordination.
@@ -141,8 +163,10 @@ Good fit for AWS-native workflow coordination.
 
 Pattern:
 
-```text
-dbt project -> Databricks SQL or compute -> curated model tables
+```mermaid
+flowchart LR
+	dbt[dbt Project] --> compute[Databricks SQL or Compute]
+	compute --> models[Curated Model Tables]
 ```
 
 Good fit when transformation logic is primarily SQL-driven and managed as versioned models.

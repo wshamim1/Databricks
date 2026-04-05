@@ -32,6 +32,14 @@ A common notebook flow looks like this:
 4. Write results to a managed table or path
 5. Log counts or metrics
 
+```mermaid
+flowchart LR
+	params[Parameters] --> read[Read Source Data]
+	read --> transform[Transform and Validate]
+	transform --> write[Write Results]
+	write --> metrics[Log Counts and Metrics]
+```
+
 ## Parameterizing notebooks
 
 In Databricks, notebook parameters are often implemented with widgets.
@@ -171,8 +179,12 @@ Good fit for:
 
 ## Example external scheduler flow
 
-```text
-External scheduler -> Databricks Jobs API -> Databricks workflow -> Delta tables -> downstream consumers
+```mermaid
+flowchart LR
+	external[External Scheduler] --> api[Databricks Jobs API]
+	api --> workflow[Databricks Workflow]
+	workflow --> delta[Delta Tables]
+	delta --> consumers[Downstream Consumers]
 ```
 
 ## Airflow-style pattern
