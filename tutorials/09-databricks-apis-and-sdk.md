@@ -36,9 +36,20 @@ Typical use cases:
 
 ## Companion assets in this repo
 
+Combined examples:
+
 - Shell script: `scripts/databricks_rest_api_examples.sh`
 - Python SDK script: `scripts/databricks_sdk_examples.py`
 - Notebook walkthrough: `notebooks/databricks_apis_and_sdk_examples.ipynb`
+
+Separated examples:
+
+- REST jobs script: `scripts/rest/jobs_api.sh`
+- REST clusters script: `scripts/rest/clusters_api.sh`
+- REST workspace script: `scripts/rest/workspace_api.sh`
+- SDK jobs script: `scripts/sdk/jobs_api.py`
+- SDK clusters script: `scripts/sdk/clusters_api.py`
+- SDK workspace script: `scripts/sdk/workspace_api.py`
 
 Use these as templates rather than production-ready deployment code.
 
@@ -147,6 +158,22 @@ curl --request GET "$DATABRICKS_HOST/api/2.1/jobs/list" \
 curl --request GET "$DATABRICKS_HOST/api/2.0/clusters/list" \
   --header "Authorization: Bearer $DATABRICKS_TOKEN"
 ```
+
+## Other useful Databricks APIs
+
+Beyond jobs and clusters, the most common APIs teams usually automate are:
+
+- Workspace APIs: import, export, list, and create folders or notebook assets
+- Permissions APIs: manage access control on jobs, clusters, notebooks, and other objects
+- Repos APIs: sync Git-backed repos in the workspace
+- Cluster policies APIs: enforce standardized compute rules
+- SQL warehouses APIs: create and manage SQL warehouses for analysts and BI
+- Unity Catalog and permissions APIs: catalogs, schemas, tables, grants, and governance metadata
+- Secret management APIs: manage secret scopes and secrets, depending on platform setup
+- Files and DBFS related APIs: move or inspect files where applicable
+- Serving or model APIs: manage model serving or inference endpoints in ML workflows
+
+If you are automating platform administration, workspace, permissions, cluster policies, and SQL warehouse APIs are usually the next places to look after jobs and compute.
 
 ## Python SDK setup
 
