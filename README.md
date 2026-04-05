@@ -42,6 +42,8 @@ This repository is a compact learning path for Databricks fundamentals.
 25. [Medallion Architecture End-to-End Notebook](notebooks/medallion_architecture_end_to_end_examples.ipynb)
 26. [Observability and Troubleshooting Notebook](notebooks/observability_and_troubleshooting_examples.ipynb)
 27. [Real-World Ingestion Patterns Notebook](notebooks/real_world_ingestion_patterns_examples.ipynb)
+28. [Kafka End-to-End Ingestion Notebook](notebooks/kafka_end_to_end_ingestion_examples.ipynb)
+29. [IoT Monitoring and Anomaly Notebook](notebooks/iot_monitoring_and_anomaly_examples.ipynb)
 
 ## Suggested order
 
@@ -72,6 +74,8 @@ The external integrations guide and examples show how Databricks fits into Airfl
 ### Real-world ingestion
 
 The real-world ingestion guide and notebook show practical source patterns such as Kafka events, IoT sensor telemetry, file-based landing, API extraction, and CDC-style ingestion into bronze, silver, and gold layers.
+
+The dedicated Kafka and IoT notebooks go deeper into end-to-end event ingestion, device heartbeat checks, and anomaly candidate generation.
 
 ### Key terms
 
@@ -107,7 +111,7 @@ The scheduler comparison and scheduler architecture pages explain how Databricks
 ## How to use this repo
 
 - Read the markdown guides for concepts and terminology
-- Open the notebooks for working examples of Spark code, Delta operations, medallion layering, observability checks, real-world ingestion patterns, Unity Catalog usage, Databricks SQL, streaming patterns, machine learning workflows, API automation, scheduler design, job orchestration, and notebook patterns
+- Open the notebooks for working examples of Spark code, Delta operations, medallion layering, observability checks, real-world ingestion patterns, Kafka pipelines, IoT monitoring patterns, Unity Catalog usage, Databricks SQL, streaming patterns, machine learning workflows, API automation, scheduler design, job orchestration, and notebook patterns
 - Use the scripts in `scripts/` as starting points for Databricks REST API and Python SDK automation
 - Use the scripts in `scripts/` as starting points for Databricks REST API, Python SDK, and external scheduler automation examples
 - Use the examples in `integrations/` as starting points for Airflow, Azure Data Factory, GitHub Actions, and Step Functions integration patterns
